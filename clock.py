@@ -13,10 +13,11 @@ import re
 import string
 import calendar
 def clock():
-    global epd 
+    global epd
+    DHTIP='192.168.88.10'
     temphum = []
     try:
-        data=urllib.request.urlopen('http://192.168.88.10/humidity.log')
+        data=urllib.request.urlopen('http://%s/humidity.log' %DHTIP)
         for line in data:
             lastline=line.decode('utf-8')
         lastline=lastline.split(' -> ')
